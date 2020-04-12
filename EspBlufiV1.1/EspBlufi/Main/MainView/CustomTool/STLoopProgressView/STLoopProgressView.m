@@ -96,7 +96,7 @@
 }
 
 /**
- *  设置渐变色，渐变色由左右两个部分组成，左边部分由黄到绿，右边部分由黄到红
+ *  Set the gradient color, the gradient color is composed of left and right parts, the left part is from yellow to green, and the right part is from yellow to red
  */
 - (void)setupColorLayer {
     

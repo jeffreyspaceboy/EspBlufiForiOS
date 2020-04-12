@@ -76,7 +76,7 @@ typedef enum
     UIImage *backimage=[UIImage imageNamed:@"back_normal"];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[backimage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:(UIBarButtonItemStylePlain) target:self action:@selector(didClickLeftBarBtnIem:)];
     
-    self.navigationItem.title = @"配置";
+    self.navigationItem.title = @"Configuration";
     UIImage *sendImage=[UIImage imageNamed:@"send"];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[sendImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:(UIBarButtonItemStylePlain) target:self action:@selector(didClickRightBarBtnIem:)];
     
@@ -332,7 +332,7 @@ typedef enum
     //配置按钮
     UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake(([UIScreen mainScreen].bounds.size.width-buttonW)/2, CGRectGetMaxY(wifiView.frame)+offset, buttonW, Height)];
     btn.backgroundColor=[UIColor colorWithHexString:@"#7aC4Eb"];
-    [btn setTitle:@"配置" forState:UIControlStateNormal];
+    [btn setTitle:@"Configuration" forState:UIControlStateNormal];
     btn.layer.cornerRadius=btn.bounds.size.height/2;
     btn.layer.masksToBounds=YES;
     [btn addTarget:self action:@selector(okBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -372,7 +372,7 @@ typedef enum
 
 -(void)okBtnClick
 {
-    zwjLog(@"点击事件");
+    zwjLog(@"Click event");
     
     if (self.displaymode==NullOpmode) {
        
@@ -393,7 +393,7 @@ typedef enum
             
         }else
         {
-            [HUDTips ShowLabelTipsToView:self.view WithText:@"参数不完整"];
+            [HUDTips ShowLabelTipsToView:self.view WithText:@"Incomplete parameters"];
         }
     
     }
@@ -402,14 +402,14 @@ typedef enum
         
         if (self.softpasswordmode==Openmode) {
             if (self.SoftAPSSidTextfield.text.length<=0) {
-                [HUDTips ShowLabelTipsToView:self.view WithText:@"参数不完整"];
+                [HUDTips ShowLabelTipsToView:self.view WithText:@"Incomplete parameters"];
                 return;
             }
             
         }else
         {
             if (self.SoftAPSSidTextfield.text.length<=0 || self.SoftAPPasswordTextfield.text.length<=0) {
-                [HUDTips ShowLabelTipsToView:self.view WithText:@"参数不完整"];
+                [HUDTips ShowLabelTipsToView:self.view WithText:@"Incomplete parameters"];
                 return;
             }
         }
@@ -435,7 +435,7 @@ typedef enum
             object.Security=WPA_WPA2_PSK;
         }else
         {
-            zwjLog(@"异常");
+            zwjLog(@"Abnormal");
             return;
         }
         if ([self.delegate respondsToSelector:@selector(SetOpmode:Object:openmode:)]) {
@@ -455,14 +455,14 @@ typedef enum
     {
         if (self.softpasswordmode==Openmode) {
             if (self.SoftAPSSidTextfield.text.length<=0 ||self.WifiPasswordTextField.text.length<=0 || self.WifiSSidTextField.text.length<=0) {
-                [HUDTips ShowLabelTipsToView:self.view WithText:@"参数不完整"];
+                [HUDTips ShowLabelTipsToView:self.view WithText:@"Incomplete parameters"];
                 return;
             }
             
         }else
         {
             if (self.SoftAPSSidTextfield.text.length<=0 || self.SoftAPPasswordTextfield.text.length<=0 ||self.WifiPasswordTextField.text.length<=0 || self.WifiSSidTextField.text.length<=0) {
-                [HUDTips ShowLabelTipsToView:self.view WithText:@"参数不完整"];
+                [HUDTips ShowLabelTipsToView:self.view WithText:@"Incomplete parameters"];
                 return;
             }
         }
@@ -487,7 +487,7 @@ typedef enum
             object.Security=WPA_WPA2_PSK;
         }else
         {
-            zwjLog(@"异常");
+            zwjLog(@"Abnormal");
             return;
         }
         object.WifiSSid=self.WifiSSidTextField.text;
@@ -506,7 +506,7 @@ typedef enum
     
     }else
     {
-        zwjLog(@"异常");
+        zwjLog(@"Abnormal");
     }
 }
 
@@ -682,7 +682,7 @@ typedef enum
         [self.SoftAPSMax_ConnectBtn setTitle:str forState:UIControlStateNormal];
     }else
     {
-        zwjLog(@"异常");
+        zwjLog(@"Abnormal");
         
     }
 

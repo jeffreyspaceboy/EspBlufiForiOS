@@ -21,25 +21,25 @@
 }
 
 
-- (BabyPeripheralManager *(^)())startAdvertising {
+- (BabyPeripheralManager *(^)(void))startAdvertising {
     return ^BabyPeripheralManager *() {
         
         if ([self canStartAdvertising]) {
-            PERIPHERAL_MANAGER_INIT_WAIT_TIMES = 0;
+            self->PERIPHERAL_MANAGER_INIT_WAIT_TIMES = 0;
             NSMutableArray *UUIDS = [NSMutableArray array];
-            for (CBMutableService *s in _services) {
+            for (CBMutableService *s in self->_services) {
                 [UUIDS addObject:s.UUID];
             }
             //启动广播
-            [_peripheralManager startAdvertising:
+            [self->_peripheralManager startAdvertising:
              @{
                CBAdvertisementDataServiceUUIDsKey :  UUIDS
-               ,CBAdvertisementDataLocalNameKey : _localName
+               ,CBAdvertisementDataLocalNameKey : self->_localName
              }];
         }
         else {
-            PERIPHERAL_MANAGER_INIT_WAIT_TIMES++;
-            if (PERIPHERAL_MANAGER_INIT_WAIT_TIMES > 5) {
+            self->PERIPHERAL_MANAGER_INIT_WAIT_TIMES++;
+            if (self->PERIPHERAL_MANAGER_INIT_WAIT_TIMES > 5) {
                 //Log(@">>>error： 第%d次等待peripheralManager打开任然失败，请检查蓝牙设备是否可用",PERIPHERAL_MANAGER_INIT_WAIT_TIMES);
             }
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 3.0 * NSEC_PER_SEC);
@@ -72,7 +72,7 @@
 
 - (BabyPeripheralManager *(^)(NSArray *array))addServices {
     return ^BabyPeripheralManager*(NSArray *array) {
-        _services = [NSMutableArray arrayWithArray:array];
+        self->_services = [NSMutableArray arrayWithArray:array];
         [self addServicesToPeripheral];
         return  self;
     };

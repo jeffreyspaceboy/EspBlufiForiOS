@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -165,7 +165,6 @@
 		212E85E11E8237060084451A /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		212E85E21E8237060084451A /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		213BB0581D111EA40013FC9B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		213BB05A1D111EB50013FC9B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		213E2E6D1D6C2E5600CF64BD /* STLoopProgressView+BaseConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "STLoopProgressView+BaseConfiguration.h"; sourceTree = "<group>"; };
 		213E2E6E1D6C2E5600CF64BD /* STLoopProgressView+BaseConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "STLoopProgressView+BaseConfiguration.m"; sourceTree = "<group>"; };
 		213E2E6F1D6C2E5600CF64BD /* STLoopProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STLoopProgressView.h; sourceTree = "<group>"; };
@@ -258,10 +257,10 @@
 		21AC76211E2368E800C6E550 /* EspBlufiUITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EspBlufiUITests.m; sourceTree = "<group>"; };
 		21B81C6E1E961EA00000A7FA /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		21B81C6F1E961EA00000A7FA /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
-		21F440831CCB50E6006113AE /* EspBlufi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EspBlufi.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		21F4409C1CCB50E6006113AE /* EspBlufi.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EspBlufi.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F440831CCB50E6006113AE /* EspBlufiJeffreyTestJeffreyTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EspBlufiJeffreyTestJeffreyTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F4409C1CCB50E6006113AE /* EspBlufiJeffreyTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EspBlufiJeffreyTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F440A21CCB50E6006113AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21F440A71CCB50E6006113AE /* EspBlufi.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EspBlufi.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21F440A71CCB50E6006113AE /* EspBlufiJeffreyTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EspBlufiJeffreyTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F440AD1CCB50E6006113AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2678126021FB0B7600A3B94C /* sendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sendViewController.h; sourceTree = "<group>"; };
 		2678126121FB0B7600A3B94C /* sendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sendViewController.m; sourceTree = "<group>"; };
@@ -645,9 +644,9 @@
 		21F440841CCB50E6006113AE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				21F440831CCB50E6006113AE /* EspBlufi.app */,
-				21F4409C1CCB50E6006113AE /* EspBlufi.xctest */,
-				21F440A71CCB50E6006113AE /* EspBlufi.xctest */,
+				21F440831CCB50E6006113AE /* EspBlufiJeffreyTestJeffreyTest.app */,
+				21F4409C1CCB50E6006113AE /* EspBlufiJeffreyTest.xctest */,
+				21F440A71CCB50E6006113AE /* EspBlufiJeffreyTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -718,9 +717,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		21F440821CCB50E6006113AE /* EspBlufi */ = {
+		21F440821CCB50E6006113AE /* EspBlufiJeffreyTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21F440B01CCB50E6006113AE /* Build configuration list for PBXNativeTarget "EspBlufi" */;
+			buildConfigurationList = 21F440B01CCB50E6006113AE /* Build configuration list for PBXNativeTarget "EspBlufiJeffreyTest" */;
 			buildPhases = (
 				21F4407F1CCB50E6006113AE /* Sources */,
 				21F440801CCB50E6006113AE /* Frameworks */,
@@ -730,14 +729,14 @@
 			);
 			dependencies = (
 			);
-			name = EspBlufi;
+			name = EspBlufiJeffreyTest;
 			productName = "益家人";
-			productReference = 21F440831CCB50E6006113AE /* EspBlufi.app */;
+			productReference = 21F440831CCB50E6006113AE /* EspBlufiJeffreyTestJeffreyTest.app */;
 			productType = "com.apple.product-type.application";
 		};
-		21F4409B1CCB50E6006113AE /* EspBlufiTests */ = {
+		21F4409B1CCB50E6006113AE /* EspBlufiJeffreyTestTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21F440B31CCB50E6006113AE /* Build configuration list for PBXNativeTarget "EspBlufiTests" */;
+			buildConfigurationList = 21F440B31CCB50E6006113AE /* Build configuration list for PBXNativeTarget "EspBlufiJeffreyTestTests" */;
 			buildPhases = (
 				21F440981CCB50E6006113AE /* Sources */,
 				21F440991CCB50E6006113AE /* Frameworks */,
@@ -748,14 +747,14 @@
 			dependencies = (
 				21F4409E1CCB50E6006113AE /* PBXTargetDependency */,
 			);
-			name = EspBlufiTests;
+			name = EspBlufiJeffreyTestTests;
 			productName = "益家人Tests";
-			productReference = 21F4409C1CCB50E6006113AE /* EspBlufi.xctest */;
+			productReference = 21F4409C1CCB50E6006113AE /* EspBlufiJeffreyTest.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		21F440A61CCB50E6006113AE /* EspBlufiUITests */ = {
+		21F440A61CCB50E6006113AE /* EspBlufiJeffreyTestUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21F440B61CCB50E6006113AE /* Build configuration list for PBXNativeTarget "EspBlufiUITests" */;
+			buildConfigurationList = 21F440B61CCB50E6006113AE /* Build configuration list for PBXNativeTarget "EspBlufiJeffreyTestUITests" */;
 			buildPhases = (
 				21F440A31CCB50E6006113AE /* Sources */,
 				21F440A41CCB50E6006113AE /* Frameworks */,
@@ -766,9 +765,9 @@
 			dependencies = (
 				21F440A91CCB50E6006113AE /* PBXTargetDependency */,
 			);
-			name = EspBlufiUITests;
+			name = EspBlufiJeffreyTestUITests;
 			productName = "益家人UITests";
-			productReference = 21F440A71CCB50E6006113AE /* EspBlufi.xctest */;
+			productReference = 21F440A71CCB50E6006113AE /* EspBlufiJeffreyTest.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -777,12 +776,12 @@
 		21F4407B1CCB50E6006113AE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0910;
-				ORGANIZATIONNAME = "zhi weijian";
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Jeffrey Fisher II";
 				TargetAttributes = {
 					21F440821CCB50E6006113AE = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = QWXF6GB4AV;
+						DevelopmentTeam = VZRXF5EA3K;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.AccessWiFi = {
@@ -806,24 +805,22 @@
 					};
 				};
 			};
-			buildConfigurationList = 21F4407E1CCB50E6006113AE /* Build configuration list for PBXProject "EspBlufi" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			buildConfigurationList = 21F4407E1CCB50E6006113AE /* Build configuration list for PBXProject "EspBlufiJeffreyTest" */;
+			compatibilityVersion = "Xcode 11.4";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
-				"zh-Hans",
 			);
 			mainGroup = 21F4407A1CCB50E6006113AE;
 			productRefGroup = 21F440841CCB50E6006113AE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				21F440821CCB50E6006113AE /* EspBlufi */,
-				21F4409B1CCB50E6006113AE /* EspBlufiTests */,
-				21F440A61CCB50E6006113AE /* EspBlufiUITests */,
+				21F440821CCB50E6006113AE /* EspBlufiJeffreyTest */,
+				21F4409B1CCB50E6006113AE /* EspBlufiJeffreyTestTests */,
+				21F440A61CCB50E6006113AE /* EspBlufiJeffreyTestUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -928,12 +925,12 @@
 /* Begin PBXTargetDependency section */
 		21F4409E1CCB50E6006113AE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 21F440821CCB50E6006113AE /* EspBlufi */;
+			target = 21F440821CCB50E6006113AE /* EspBlufiJeffreyTest */;
 			targetProxy = 21F4409D1CCB50E6006113AE /* PBXContainerItemProxy */;
 		};
 		21F440A91CCB50E6006113AE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 21F440821CCB50E6006113AE /* EspBlufi */;
+			target = 21F440821CCB50E6006113AE /* EspBlufiJeffreyTest */;
 			targetProxy = 21F440A81CCB50E6006113AE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -943,7 +940,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				213BB0581D111EA40013FC9B /* en */,
-				213BB05A1D111EB50013FC9B /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			path = ..;
@@ -966,12 +962,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -998,7 +996,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1019,12 +1017,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1045,7 +1045,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1060,13 +1060,16 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QWXF6GB4AV;
+				DEVELOPMENT_TEAM = VZRXF5EA3K;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				"HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/EspBlufi/openssl/openssl/include/";
 				INFOPLIST_FILE = EspBlufi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EspBlufi/Main/MainView/BLE/Controller",
@@ -1074,8 +1077,8 @@
 					"$(PROJECT_DIR)/EspBlufi/openssl",
 					"$(PROJECT_DIR)/EspBlufi/openssl/openssl",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.espressif.EspBlufi;
-				PRODUCT_NAME = EspBlufi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeffreyfisherii.EspBlufiJeffreyTest;
+				PRODUCT_NAME = EspBlufiJeffreyTestJeffreyTest;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1090,13 +1093,16 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Espressif Systems (Shanghai) Pte. Ltd. (QWXF6GB4AV)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QWXF6GB4AV;
+				DEVELOPMENT_TEAM = VZRXF5EA3K;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/EspBlufi/openssl/openssl/include/";
 				INFOPLIST_FILE = EspBlufi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EspBlufi/Main/MainView/BLE/Controller",
@@ -1104,8 +1110,8 @@
 					"$(PROJECT_DIR)/EspBlufi/openssl",
 					"$(PROJECT_DIR)/EspBlufi/openssl/openssl",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.espressif.EspBlufi;
-				PRODUCT_NAME = EspBlufi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeffreyfisherii.EspBlufiJeffreyTest;
+				PRODUCT_NAME = EspBlufiJeffreyTestJeffreyTest;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1117,10 +1123,14 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = EspBlufiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.joymed-tech.---Tests";
-				PRODUCT_NAME = EspBlufi;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EspBlufi.app/EspBlufi";
+				PRODUCT_NAME = EspBlufiJeffreyTest;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EspBlufiJeffreyTest.app/EspBlufiJeffreyTest";
 			};
 			name = Debug;
 		};
@@ -1129,10 +1139,14 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = EspBlufiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.joymed-tech.---Tests";
-				PRODUCT_NAME = EspBlufi;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EspBlufi.app/EspBlufi";
+				PRODUCT_NAME = EspBlufiJeffreyTest;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EspBlufiJeffreyTest.app/EspBlufiJeffreyTest";
 			};
 			name = Release;
 		};
@@ -1140,9 +1154,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = EspBlufiUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.joymed-tech.---UITests";
-				PRODUCT_NAME = EspBlufi;
+				PRODUCT_NAME = EspBlufiJeffreyTest;
 				TEST_TARGET_NAME = EspBlufi;
 			};
 			name = Debug;
@@ -1151,9 +1169,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = EspBlufiUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.joymed-tech.---UITests";
-				PRODUCT_NAME = EspBlufi;
+				PRODUCT_NAME = EspBlufiJeffreyTest;
 				TEST_TARGET_NAME = EspBlufi;
 			};
 			name = Release;
@@ -1172,12 +1194,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1198,7 +1222,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1213,13 +1237,16 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QWXF6GB4AV;
+				DEVELOPMENT_TEAM = VZRXF5EA3K;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/EspBlufi/openssl/openssl/include/";
 				INFOPLIST_FILE = EspBlufi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EspBlufi/Main/MainView/BLE/Controller",
@@ -1227,8 +1254,8 @@
 					"$(PROJECT_DIR)/EspBlufi/openssl",
 					"$(PROJECT_DIR)/EspBlufi/openssl/openssl",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.espressif.EspBlufi;
-				PRODUCT_NAME = EspBlufi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeffreyfisherii.EspBlufiJeffreyTest;
+				PRODUCT_NAME = EspBlufiJeffreyTestJeffreyTest;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1240,10 +1267,14 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = EspBlufiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.joymed-tech.---Tests";
-				PRODUCT_NAME = EspBlufi;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EspBlufi.app/EspBlufi";
+				PRODUCT_NAME = EspBlufiJeffreyTest;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EspBlufiJeffreyTest.app/EspBlufiJeffreyTest";
 			};
 			name = AdHoc;
 		};
@@ -1251,9 +1282,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = EspBlufiUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.joymed-tech.---UITests";
-				PRODUCT_NAME = EspBlufi;
+				PRODUCT_NAME = EspBlufiJeffreyTest;
 				TEST_TARGET_NAME = EspBlufi;
 			};
 			name = AdHoc;
@@ -1261,7 +1296,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		21F4407E1CCB50E6006113AE /* Build configuration list for PBXProject "EspBlufi" */ = {
+		21F4407E1CCB50E6006113AE /* Build configuration list for PBXProject "EspBlufiJeffreyTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21F440AE1CCB50E6006113AE /* Debug */,
@@ -1271,7 +1306,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21F440B01CCB50E6006113AE /* Build configuration list for PBXNativeTarget "EspBlufi" */ = {
+		21F440B01CCB50E6006113AE /* Build configuration list for PBXNativeTarget "EspBlufiJeffreyTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21F440B11CCB50E6006113AE /* Debug */,
@@ -1281,7 +1316,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21F440B31CCB50E6006113AE /* Build configuration list for PBXNativeTarget "EspBlufiTests" */ = {
+		21F440B31CCB50E6006113AE /* Build configuration list for PBXNativeTarget "EspBlufiJeffreyTestTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21F440B41CCB50E6006113AE /* Debug */,
@@ -1291,7 +1326,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21F440B61CCB50E6006113AE /* Build configuration list for PBXNativeTarget "EspBlufiUITests" */ = {
+		21F440B61CCB50E6006113AE /* Build configuration list for PBXNativeTarget "EspBlufiJeffreyTestUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				21F440B71CCB50E6006113AE /* Debug */,

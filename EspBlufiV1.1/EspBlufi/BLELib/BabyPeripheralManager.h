@@ -21,7 +21,7 @@
 /**
 启动广播
  */
-- (BabyPeripheralManager *(^)())startAdvertising;
+- (BabyPeripheralManager *(^)(void))startAdvertising;
 
 //外设管理器
 @property (nonatomic, strong) CBPeripheralManager *peripheralManager;
@@ -59,4 +59,4 @@ CBMutableService* makeCBService(NSString *UUID);
 /**
  生成UUID
  */
-NSString* genUUID();
+NSString* genUUID(void);

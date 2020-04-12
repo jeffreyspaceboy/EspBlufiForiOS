@@ -303,7 +303,7 @@
         
         //反方向动画
         if (isReverse) {
-            if (fakeProgress <= _progress || fakeProgress <= 0.0f) {
+            if (self->fakeProgress <= self->_progress || self->fakeProgress <= 0.0f) {
                 [strongSelf dealWithLast];
                 return;
             } else {
@@ -312,7 +312,7 @@
             }
         } else {
             //正方向动画
-            if (fakeProgress >= _progress || fakeProgress >= 1.0f) {
+            if (self->fakeProgress >= self->_progress || self->fakeProgress >= 1.0f) {
                 [strongSelf dealWithLast];
                 return;
             } else {
@@ -321,10 +321,10 @@
             }
         }
         //数值增加或减少
-        if (_animationModel == CircleIncreaseSameTime) {
-            fakeProgress += defaultIncreaseValue*sameTimeIncreaseValue;//不同进度动画时间基本相同
+        if (self->_animationModel == CircleIncreaseSameTime) {
+            self->fakeProgress += defaultIncreaseValue*sameTimeIncreaseValue;//不同进度动画时间基本相同
         } else {
-            fakeProgress += defaultIncreaseValue;//进度越大动画时间越长。
+            self->fakeProgress += defaultIncreaseValue;//进度越大动画时间越长。
         }
         
     } repeats:YES];

@@ -11,7 +11,7 @@
 @interface NSTimer (timerBlock)
 
 + (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)interval
-                                         block:(void(^)())block
+                                      block:(void(^)(void))block
                                        repeats:(BOOL)repeats;
 
 @end

@@ -25,7 +25,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     UIImage *backimage=[UIImage imageNamed:@"back_normal"];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[backimage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:(UIBarButtonItemStylePlain) target:self action:@selector(didClickLeftBarBtnIem:)];
-    self.navigationItem.title = @"发送数据";
+    self.navigationItem.title = @"Send Data";
     
     [self sendView];
 }
@@ -33,7 +33,7 @@
 - (void)sendView {
     self.sendDataTextField = [[UITextField alloc]initWithFrame:CGRectMake(10, 20, SCREEN_WIDTH-20, 50)];
 //    self.sendDataTextField.backgroundColor = [UIColor colorWithHexString:@"#e6e6e6"];
-    self.sendDataTextField.placeholder = @"请输入需要发送的数据";
+    self.sendDataTextField.placeholder = @"Please enter the data to be sent";
     [self.view addSubview:_sendDataTextField];
     
     UIView *WifiSsidline=[[UIView alloc]initWithFrame:CGRectMake(10, 70, SCREEN_WIDTH - 20, 1)];
@@ -42,7 +42,7 @@
     
     UIButton *sendBtn = [[UIButton alloc]initWithFrame:CGRectMake(120, 90, SCREEN_WIDTH-240, 50)];
     //btn.backgroundColor=[UIColor redColor];
-    [sendBtn setTitle:@"发送" forState:UIControlStateNormal];
+    [sendBtn setTitle:@"Send" forState:UIControlStateNormal];
     [sendBtn setBackgroundColor:[UIColor colorWithHexString:@"#7aC4Eb"]];
     sendBtn.layer.cornerRadius=sendBtn.bounds.size.height/2;
     sendBtn.layer.masksToBounds=YES;
@@ -53,7 +53,7 @@
 - (void)sendBtnClick:(UIButton *)sender {
     //     send custom data
     if ([self.sendDataTextField.text isEqualToString:[NSString stringWithFormat:@""]]) {
-        NSLog(@"请输入自定义数据");
+        NSLog(@"Please enter custom data");
     }else {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"sendDtaNotification" object:@{@"customData":self.sendDataTextField.text}];
     }

@@ -199,7 +199,7 @@ typedef enum {
 
     UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake(buttonX, CGRectGetMaxY(SSidSTAlabel.frame)+offset, buttonW, buttonH)];
     //btn.backgroundColor=[UIColor redColor];
-    [btn setTitle:@"配置" forState:UIControlStateNormal];
+    [btn setTitle:@"Configuration" forState:UIControlStateNormal];
     [btn setBackgroundColor:[UIColor colorWithHexString:@"#7aC4Eb"]];
     btn.layer.cornerRadius=btn.bounds.size.height/2;
     btn.layer.masksToBounds=YES;
@@ -232,7 +232,7 @@ typedef enum {
     // send custom data
     //NSString *str=[NSString stringWithFormat:@"hello_zwj"];
     //[self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SendCustomData:str Sequence:self.sequence Encrypt:YES WithKeyData:self.Securtkey]];
-    zwjLog(@"跳转到配置界面");
+    zwjLog(@"Jump to the configuration interface");
     ConfigureVC *vc=[[ConfigureVC alloc]init];
     vc.view.backgroundColor=[UIColor whiteColor];
     self.navigationController.navigationBarHidden=NO;
@@ -368,7 +368,7 @@ typedef enum {
             case BleStateIdle:
                 //清除设备集合
                 [weakself.BLEDeviceArray removeAllObjects];
-                baby.scanForPeripherals().begin().stop(SCANTIME);   
+                self->baby.scanForPeripherals().begin().stop(SCANTIME);   
                 weakself.blestate=BleStateScan;
                 break;
             case BleStateScan:
@@ -377,13 +377,13 @@ typedef enum {
             case BleStateCancelConnect:
                 //清除设备集合
                 [weakself.BLEDeviceArray removeAllObjects];
-                baby.scanForPeripherals().begin().stop(SCANTIME);
+                self->baby.scanForPeripherals().begin().stop(SCANTIME);
                 weakself.blestate=BleStateScan;
                 break;
             case BleStateNoDevice:
                 //清除设备集合
                 [weakself.BLEDeviceArray removeAllObjects];
-                baby.scanForPeripherals().begin().stop(SCANTIME);
+                self->baby.scanForPeripherals().begin().stop(SCANTIME);
                 weakself.blestate=BleStateScan;
                 break;
             case BleStateConnected:
@@ -393,7 +393,7 @@ typedef enum {
             case BleStateDisconnect:
                 //清除设备集合
                 [weakself.BLEDeviceArray removeAllObjects];
-                baby.scanForPeripherals().begin().stop(SCANTIME);
+                self->baby.scanForPeripherals().begin().stop(SCANTIME);
                 weakself.blestate=BleStateScan;
                 break;
             case BleStateConnecting:
@@ -406,12 +406,12 @@ typedef enum {
                 break;
             case BleStateConnecttimeout:
                 [weakself.BLEDeviceArray removeAllObjects];
-                baby.scanForPeripherals().begin().stop(SCANTIME);
+                self->baby.scanForPeripherals().begin().stop(SCANTIME);
                 weakself.blestate=BleStateScan;
                 break;
             case BleStateReconnecttimeout:
                 [weakself.BLEDeviceArray removeAllObjects];
-                baby.scanForPeripherals().begin().stop(SCANTIME);
+                self->baby.scanForPeripherals().begin().stop(SCANTIME);
                 weakself.blestate=BleStateScan;
                 break;
             default:
@@ -434,11 +434,11 @@ typedef enum {
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender
 {
     if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
-        zwjLog(@"向左滑动");
+        zwjLog(@"Swipe Left");
         
     }else if (sender.direction==UISwipeGestureRecognizerDirectionRight)
     {
-        zwjLog(@"向右滑动");
+        zwjLog(@"Swipe Right");
     }
 }
 //设置导航栏按钮
@@ -645,7 +645,7 @@ typedef enum {
     }];
     //连接成功
     [baby setBlockOnConnected:^(CBCentralManager *central, CBPeripheral *peripheral) {
-        zwjLog(@"设备：%@--连接成功",peripheral.name);
+        zwjLog(@"Device：%@--connected succesfully",peripheral.name);
         BLEDevice *device = weakself.bleDevicesSaveDic[peripheral.identifier.UUIDString];
         device.isConnected = YES;
         //取消自动回连功能(连接成功后必须清除自动回连,否则会崩溃)
@@ -657,7 +657,7 @@ typedef enum {
     
     //设备连接失败
     [baby setBlockOnFailToConnect:^(CBCentralManager *central, CBPeripheral *peripheral, NSError *error) {
-        zwjLog(@"设备：%@--连接失败",peripheral.name);
+        zwjLog(@"Device：%@--connection failed",peripheral.name);
         BLEDevice *device = weakself.bleDevicesSaveDic[peripheral.identifier.UUIDString];
         device.isConnected = NO;
         //清除主动断开标志
@@ -666,7 +666,7 @@ typedef enum {
     }];
     //发现设备的services委托
     [baby setBlockOnDiscoverServices:^(CBPeripheral *peripheral, NSError *error) {
-        zwjLog(@"发现服务");
+        zwjLog(@"Discovery Service");
         //更新蓝牙状态,进入已连接状态
         weakself.blestate=BleStateConnected;
         //weakself.title=weakself.currentdevice.name;
@@ -704,7 +704,7 @@ typedef enum {
             if ([characteristic.UUID.UUIDString isEqualToString:UUIDSTR_ESPRESSIF_Write])
             {
                 zwjLog(@"UUIDSTR_ESPRESSIF_RX");
-                _WriteCharacteristic=characteristic;
+                self->_WriteCharacteristic=characteristic;
             }
         }
     }];
@@ -727,7 +727,7 @@ typedef enum {
     //断开连接回调
     [baby setBlockOnDisconnect:^(CBCentralManager *central, CBPeripheral *peripheral, NSError *error) {
         if (error) {
-            zwjLog(@"断开连接Error %@",error);
+            zwjLog(@"Disconnect Error %@",error);
         }
         BLEDevice *device = weakself.bleDevicesSaveDic[peripheral.identifier.UUIDString];
         device.isConnected = NO;
@@ -736,7 +736,7 @@ typedef enum {
             //清标志位
             weakself.APPCancelConnect=NO;
             weakself.blestate=BleStateDisconnect;
-             zwjLog(@"设备：%@--断开连接",peripheral.name);
+             zwjLog(@"Device：%@--disconnect",peripheral.name);
         }
         else{
             //更新蓝牙状态,已连接状态
@@ -744,7 +744,7 @@ typedef enum {
             //添加自动回连
             if (weakself.currentdevice.Peripheral) {
                 [weakself AutoReconnect:weakself.currentdevice.Peripheral];
-                zwjLog(@"设备：%@--重新连接",peripheral.name);
+                zwjLog(@"Device：%@--reconnect",peripheral.name);
             }
         }
         //断开连接时,如果有数据就保存到数据库
@@ -795,16 +795,16 @@ typedef enum {
     //订阅状态改变
     [baby setBlockOnDidUpdateNotificationStateForCharacteristic:^(CBCharacteristic *characteristic, NSError *error) {
         if (error) {
-            zwjLog(@"订阅 Error");
+            zwjLog(@"Subscription Error");
         }
         if (characteristic.isNotifying) {
-            zwjLog(@"订阅成功");
+            zwjLog(@"Subscription successful");
             [weakself writeStructDataWithCharacteristic:weakself.WriteCharacteristic WithData:[PacketCommand GetDeviceInforWithSequence:weakself.sequence]];
             [weakself SendNegotiateData];
         }
         else
         {
-            zwjLog(@"已经取消订阅");
+            zwjLog(@"Unsubscribed");
         }
         
     }];
@@ -817,7 +817,7 @@ typedef enum {
              [HUDTips ShowLabelTipsToView:self.navigationController.view WithText:@"command error"];
              return ;
          }
-         zwjLog(@"发送数据完成");
+         zwjLog(@"Sending data is complete");
         
     }];
 }
@@ -880,7 +880,7 @@ typedef enum {
     
     if (self.currentdevice.Peripheral && Characteristic)
     {
-        zwjLog(@"发送的数据=%@,%lu",data,(unsigned long)data.length);
+        zwjLog(@"Sent Data =%@,%lu",data,(unsigned long)data.length);
         [[baby findConnectedPeripherals].firstObject writeValue:data forCharacteristic:Characteristic type:CBCharacteristicWriteWithResponse];
         self.sequence=self.sequence+1;
     }
@@ -890,7 +890,7 @@ typedef enum {
 -(void)invalidateTimer:(NSTimer *)timer
 {
     //销毁连接超时定时器
-    zwjLog(@"销毁定时器");
+    zwjLog(@"Destruction timer");
     [timer invalidate];
     timer=nil;
 }
@@ -995,7 +995,7 @@ typedef enum {
                 //[LocalNotifyFunc DeleteAllUserDefaultsAndCancelnotifyWithBlestate:self.blestate];
                 break;
             case DeviceoverAction:
-                baby.scanForPeripherals().begin().stop(SCANTIME);
+                self->baby.scanForPeripherals().begin().stop(SCANTIME);
                 weakself.blestate=BleStateScan;
                 break;
             case ConnectingAction:
@@ -1264,7 +1264,7 @@ typedef enum {
     NSRange range=NSMakeRange(4, length);
     NSData *Decryptdata=[data subdataWithRange:range];
     if (hash) {
-        zwjLog(@"有加密");
+        zwjLog(@"With encryption");
         //解密
         Byte *byte=(Byte *)[Decryptdata bytes];
         if (self.Securtkey != nil) {
@@ -1272,40 +1272,40 @@ typedef enum {
             [data replaceBytesInRange:range withBytes:[Decryptdata bytes]];
         }
     }else{
-        zwjLog(@"无加密");
+        zwjLog(@"No encryption");
     }
     if (checksum) {
         if (length+6 != data.length) {
             return;
         }
-        zwjLog(@"有校验");
+        zwjLog(@"Verified");
         //计算校验
         if ([PacketCommand VerifyCRCWithData:data]) {
-            zwjLog(@"校验成功");
+            zwjLog(@"Verify successfully");
         }else
         {
-            zwjLog(@"校验失败,返回");
-            [HUDTips ShowLabelTipsToView:self.view WithText:@"校验失败"];
+            zwjLog(@"Verification failed, return");
+            [HUDTips ShowLabelTipsToView:self.view WithText:@"Verification failed"];
             return;
         }
         
     }
     else{
-        zwjLog(@"无校验");
+        zwjLog(@"No Check");
         if (length+4 != data.length) {
             return;
         }
     }
     if(Ack)
     {
-        zwjLog(@"回复ACK");
+        zwjLog(@"Reply ACK");
         [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand ReturnAckWithSequence:self.sequence BackSequence:sequence]];
     }else{
-        zwjLog(@"不回复ACK");
+        zwjLog(@"Do not reply ACK");
     }
     NSMutableData *decryptdata=[NSMutableData dataWithData:Decryptdata];
     if (AppendPacket) {
-        zwjLog(@"有后续包");
+        zwjLog(@"There are follow-up packages");
         [decryptdata replaceBytesInRange:NSMakeRange(0, 2) withBytes:NULL length:0];
         //拼包
         if(self.ESP32data){
@@ -1316,7 +1316,7 @@ typedef enum {
         self.length=self.length+length;
         return;
     }else{
-        zwjLog(@"没有后续包");
+        zwjLog(@"No follow-up package");
         if(self.ESP32data){
             [self.ESP32data appendData:decryptdata];
             decryptdata =[NSMutableData dataWithData:self.ESP32data];
@@ -1338,8 +1338,8 @@ typedef enum {
     }
     else
     {
-        zwjLog(@"异常数据包");
-        [HUDTips ShowLabelTipsToView:self.view WithText:@"异常数据包"];
+        zwjLog(@"Abnormal packet");
+        [HUDTips ShowLabelTipsToView:self.view WithText:@"Abnormal packet"];
     }
 }
 -(void)GetControlPacketWithData:(NSData *)data SubType:(Byte)subtype
@@ -1347,7 +1347,7 @@ typedef enum {
     switch (subtype) {
         case ACK_Esp32_Phone_ControlSubType:
         {
-            zwjLog(@"接收到ACK<<<<<<<<<<<<<<<");
+            zwjLog(@"Received ACK<<<<<<<<<<<<<<<");
         }
             break;
         case ESP32_Phone_Security_ControlSubType:
@@ -1476,7 +1476,7 @@ typedef enum {
             if (data.length<3) {
                 return;
             }
-            zwjLog(@"接收到连接状态包<<<<<<<<<<<<<<<<");
+            zwjLog(@"Connection status packet received <<<<<<<<<<<<<<<<");
             NSString *OpmodeTitle;
             switch (dataByte[0])
             {
@@ -1509,16 +1509,16 @@ typedef enum {
             
             NSString *StateTitle;
             if (dataByte[1]==0x0) {
-                StateTitle=@"STA连接状态";
+                StateTitle=@"STA Connection Status";
             }else
             {
-                StateTitle=@"STA非连接状态";
+                StateTitle=@"STA Disconnected";
             }
             zwjLog(@"%@",StateTitle);
             self.STAStatelabel.text=StateTitle;
             
-            zwjLog(@"SoftAP连接状态,%d 个STA",dataByte[2]);
-            self.STACountlabel.text=[NSString stringWithFormat:@"SoftAP连接设备数量:%d",dataByte[2]];
+            zwjLog(@"SoftAP Connection Status,%d 个STA",dataByte[2]);
+            self.STACountlabel.text=[NSString stringWithFormat:@"SoftAP Number of connected devices:%d",dataByte[2]];
             self.BSSidSTAlabel.text=@"";
             self.SSidSTAlabel.text=@"";
             if(data.length==0x13)
