@@ -1,6 +1,5 @@
 //
 //  ViewController.m
-//  
 //
 //  Copyright 2017-2018 Espressif Systems (Shanghai) PTE LTD.
 //  This code is licensed under Espressif MIT License, found in LICENSE file.
@@ -118,6 +117,7 @@ typedef enum {
 {
     [super viewDidAppear:animated];
     
+    self.useEncryption = NO;
     self.navigationController.navigationBar.barTintColor=[UIColor colorWithHexString:@"#7aC4Eb"];
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:20]};
@@ -274,35 +274,35 @@ typedef enum {
     }else if (mode==STAOpmode)
     {
         [self writeStructDataWithCharacteristic:_WriteCharacteristic WithData:[PacketCommand SetOpmode:STAOpmode Sequence:self.sequence]];
-        [self writeStructDataWithCharacteristic:_WriteCharacteristic WithData:[PacketCommand SetStationSsid:object.WifiSSid Sequence:self.sequence Encrypt:YES WithKeyData:self.Securtkey]];
-        [self writeStructDataWithCharacteristic:_WriteCharacteristic WithData:[PacketCommand SetStationPassword:object.WifiPassword Sequence:self.sequence Encrypt:YES WithKeyData:self.Securtkey]];
+        [self writeStructDataWithCharacteristic:_WriteCharacteristic WithData:[PacketCommand SetStationSsid:object.WifiSSid Sequence:self.sequence Encrypt:self.useEncryption WithKeyData:self.Securtkey]];
+        [self writeStructDataWithCharacteristic:_WriteCharacteristic WithData:[PacketCommand SetStationPassword:object.WifiPassword Sequence:self.sequence Encrypt:self.useEncryption WithKeyData:self.Securtkey]];
         [self writeStructDataWithCharacteristic:_WriteCharacteristic WithData:[PacketCommand ConnectToAPWithSequence:self.sequence]];
         
         
     }else if (mode==SoftAP_STAOpmode)
     {
         [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetOpmode:SoftAP_STAOpmode Sequence:self.sequence]];
-        [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetSoftAPSsid:object.SoftAPSSid Sequence:self.sequence Encrypt:YES WithKeyData:self.Securtkey]];
+        [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetSoftAPSsid:object.SoftAPSSid Sequence:self.sequence Encrypt:self.useEncryption WithKeyData:self.Securtkey]];
         if (!open) {
-          [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetSoftAPPassword:object.SoftAPPassword Sequence:self.sequence Encrypt:YES WithKeyData:self.Securtkey]];
+          [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetSoftAPPassword:object.SoftAPPassword Sequence:self.sequence Encrypt:self.useEncryption WithKeyData:self.Securtkey]];
         }
-        [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetAuthenticationforSoftAP:object.Security Sequence:self.sequence Encrypt:YES WithKeyData:self.Securtkey]];
-        [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetChannelforSoftAP:object.channel Sequence:self.sequence Encrypt:YES WithKeyData:self.Securtkey]];
-        [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetMaxConnectforSoftAP:object.max_Connect Sequence:self.sequence Encrypt:YES WithKeyData:self.Securtkey]];
-        [self writeStructDataWithCharacteristic:_WriteCharacteristic WithData:[PacketCommand SetStationSsid:object.WifiSSid Sequence:self.sequence Encrypt:YES WithKeyData:self.Securtkey]];
-        [self writeStructDataWithCharacteristic:_WriteCharacteristic WithData:[PacketCommand SetStationPassword:object.WifiPassword Sequence:self.sequence Encrypt:YES WithKeyData:self.Securtkey]];
+        [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetAuthenticationforSoftAP:object.Security Sequence:self.sequence Encrypt:self.useEncryption WithKeyData:self.Securtkey]];
+        [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetChannelforSoftAP:object.channel Sequence:self.sequence Encrypt:self.useEncryption WithKeyData:self.Securtkey]];
+        [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetMaxConnectforSoftAP:object.max_Connect Sequence:self.sequence Encrypt:self.useEncryption WithKeyData:self.Securtkey]];
+        [self writeStructDataWithCharacteristic:_WriteCharacteristic WithData:[PacketCommand SetStationSsid:object.WifiSSid Sequence:self.sequence Encrypt:self.useEncryption WithKeyData:self.Securtkey]];
+        [self writeStructDataWithCharacteristic:_WriteCharacteristic WithData:[PacketCommand SetStationPassword:object.WifiPassword Sequence:self.sequence Encrypt:self.useEncryption WithKeyData:self.Securtkey]];
         [self writeStructDataWithCharacteristic:_WriteCharacteristic WithData:[PacketCommand ConnectToAPWithSequence:self.sequence]];
         
     }else if (mode==SoftAPOpmode)
     {
         [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetOpmode:SoftAPOpmode Sequence:self.sequence]];
-        [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetSoftAPSsid:object.SoftAPSSid Sequence:self.sequence Encrypt:YES WithKeyData:self.Securtkey]];
+        [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetSoftAPSsid:object.SoftAPSSid Sequence:self.sequence Encrypt:self.useEncryption WithKeyData:self.Securtkey]];
         if (!open) {
-          [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetSoftAPPassword:object.SoftAPPassword Sequence:self.sequence Encrypt:YES WithKeyData:self.Securtkey]];
+          [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetSoftAPPassword:object.SoftAPPassword Sequence:self.sequence Encrypt:self.useEncryption WithKeyData:self.Securtkey]];
         }
-        [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetAuthenticationforSoftAP:object.Security Sequence:self.sequence Encrypt:YES WithKeyData:self.Securtkey]];
-        [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetChannelforSoftAP:object.channel Sequence:self.sequence Encrypt:YES WithKeyData:self.Securtkey]];
-        [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetMaxConnectforSoftAP:object.max_Connect Sequence:self.sequence Encrypt:YES WithKeyData:self.Securtkey]];
+        [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetAuthenticationforSoftAP:object.Security Sequence:self.sequence Encrypt:self.useEncryption WithKeyData:self.Securtkey]];
+        [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetChannelforSoftAP:object.channel Sequence:self.sequence Encrypt:self.useEncryption WithKeyData:self.Securtkey]];
+        [self writeStructDataWithCharacteristic:self.WriteCharacteristic WithData:[PacketCommand SetMaxConnectforSoftAP:object.max_Connect Sequence:self.sequence Encrypt:self.useEncryption WithKeyData:self.Securtkey]];
     }
 }
 - (void)SetBacklayerWithColor:(UIColor *)color
@@ -368,7 +368,7 @@ typedef enum {
             case BleStateIdle:
                 //清除设备集合
                 [weakself.BLEDeviceArray removeAllObjects];
-                self->baby.scanForPeripherals().begin().stop(SCANTIME);   
+                self->baby.scanForPeripherals().begin().stop(SCANTIME);
                 weakself.blestate=BleStateScan;
                 break;
             case BleStateScan:
@@ -1517,8 +1517,8 @@ typedef enum {
             zwjLog(@"%@",StateTitle);
             self.STAStatelabel.text=StateTitle;
             
-            zwjLog(@"SoftAP Connection Status,%d 个STA",dataByte[2]);
-            self.STACountlabel.text=[NSString stringWithFormat:@"SoftAP Number of connected devices:%d",dataByte[2]];
+            zwjLog(@"SoftAP Connected, %d STA",dataByte[2]);
+            self.STACountlabel.text=[NSString stringWithFormat:@"SoftAP Connected: %d",dataByte[2]];
             self.BSSidSTAlabel.text=@"";
             self.SSidSTAlabel.text=@"";
             if(data.length==0x13)

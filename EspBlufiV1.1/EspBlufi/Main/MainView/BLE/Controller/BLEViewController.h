@@ -1,6 +1,6 @@
 //
 //  BLEViewController.h
-//  
+//
 //
 //  Copyright 2017-2018 Espressif Systems (Shanghai) PTE LTD.
 //  This code is licensed under Espressif MIT License, found in LICENSE file.
@@ -28,5 +28,7 @@ typedef enum {
 }BleState;
 
 @property (weak, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+@property (nonatomic) BOOL useEncryption; // Encryption is broken.  I can't see how that code ever worked.
 
 @end
